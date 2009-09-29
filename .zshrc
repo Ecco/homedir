@@ -39,6 +39,7 @@ alias ltop='top -ocpu -R -F -n30'
 alias cleandir='rm -v *~ .*~ \#*\# 2>/dev/null'
 alias grep='grep --color'
 alias rmt='mv $* ~/.Trash'
+srm () { mv $* ~/.Trash/ }
 
 autoload -U colors
 colors
