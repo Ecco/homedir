@@ -1,6 +1,18 @@
-PATH=$PATH:/usr/local/avr/bin:/opt/local/bin
-MANPATH=$MANPATH:/opt/local/share/man
-INFOPATH=$INFOPATH:/opt/local/share/info
+case `uname` in
+Linux)
+  export EDITOR='vi'
+  alias ls='ls --color=auto'
+  ;;
+Darwin)
+  PATH=$PATH:/usr/local/avr/bin:/opt/local/bin
+  MANPATH=$MANPATH:/opt/local/share/man
+  INFOPATH=$INFOPATH:/opt/local/share/info
+  export EDITOR='mate -w'
+  alias ls='ls -G'
+  alias ltop='top -ocpu -R -F -n30'
+  srm () { mv $* ~/.Trash/ }
+;;
+esac
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -15,7 +27,6 @@ setopt sharehistory # As each line is added, the history file is checked to see 
 setopt histignorealldups # Removes copies of lines still in the history list, keeping the newly added one
 setopt histignorespace # Ignore lines starting by a space
 
-export EDITOR='mate -w'
 autoload -Uz compinit
 compinit
 
@@ -34,12 +45,8 @@ bindkey "^[[F" end-of-line
 
 LSCOLORS="gxfxcxdxbxegedabagacad"
 
-alias ls='ls -G'
-alias ltop='top -ocpu -R -F -n30'
 alias cleandir='rm -v *~ .*~ \#*\# 2>/dev/null'
 alias grep='grep --color'
-alias rmt='mv $* ~/.Trash'
-srm () { mv $* ~/.Trash/ }
 
 autoload -U colors
 colors
@@ -57,8 +64,6 @@ fi
 
 #RPROMPT="%~"
 PS1="${ALT_COLOR}[${MAIN_COLOR}%D{%H}${ALT_COLOR}:${MAIN_COLOR}%D{%M} ${CONT_COLOR}%n${MAIN_COLOR}@${ALT_COLOR}%m${MAIN_COLOR}:${ALT_COLOR}%~ ${MAIN_COLOR}%!${ALT_COLOR}]${MAIN_COLOR} ${CONT_COLOR}%#${MAIN_COLOR} "
-# PS1="%{\e[0;31m%}%m%{\e[0m%}"
-# PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 unset MAIN_COLOR
 unset ALT_COLOR
 unset CONT_COLOR
