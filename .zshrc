@@ -1,3 +1,5 @@
+# ZSHRC
+
 case `uname` in
 Linux)
   export EDITOR='vi'
@@ -53,6 +55,7 @@ colors
 
 export MAIN_COLOR="%{$reset_color%}"
 export ALT_COLOR="%{$fg[white]%}"
+export HOST_COLOR="%{$fg[white]%}"
 
 #if test `whoami` != “root”
 if [[ "$UID" == "0" ]]
@@ -62,8 +65,19 @@ else
 export CONT_COLOR="%{$fg[white]%}"
 fi
 
+if [[ "$TERM_PROGRAM" != "Apple_Terminal" ]]
+then
+export HOST_COLOR="%{$fg[blue]%}"
+fi
+
 #RPROMPT="%~"
-PS1="${ALT_COLOR}[${MAIN_COLOR}%D{%H}${ALT_COLOR}:${MAIN_COLOR}%D{%M} ${CONT_COLOR}%n${MAIN_COLOR}@${ALT_COLOR}%m${MAIN_COLOR}:${ALT_COLOR}%~ ${MAIN_COLOR}%!${ALT_COLOR}]${MAIN_COLOR} ${CONT_COLOR}%#${MAIN_COLOR} "
+PS1="${ALT_COLOR}[${MAIN_COLOR}%D{%H}${ALT_COLOR}:${MAIN_COLOR}%D{%M} ${CONT_COLOR}%n${MAIN_COLOR}@${HOST_COLOR}%m${MAIN_COLOR}:${ALT_COLOR}%~ ${MAIN_COLOR}%!${ALT_COLOR}]${MAIN_COLOR} ${CONT_COLOR}%#${MAIN_COLOR} "
+if [[ "$SSH_CLIENT" != "" ]]
+then
+RPROMPT="${HOST_COLOR}SSH${MAIN_COLOR}"
+fi
 unset MAIN_COLOR
 unset ALT_COLOR
 unset CONT_COLOR
+unset HOST_COLOR
+
