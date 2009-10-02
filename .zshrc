@@ -65,17 +65,17 @@ else
 export CONT_COLOR="%{$fg[white]%}"
 fi
 
-if [[ "$TERM_PROGRAM" != "Apple_Terminal" ]]
-then
-export HOST_COLOR="%{$fg[blue]%}"
-fi
+# if [[ "$TERM_PROGRAM" != "Apple_Terminal" ]]
+# then
+# export HOST_COLOR="%{$fg[blue]%}"
+# fi
 
-#RPROMPT="%~"
-PS1="${ALT_COLOR}[${MAIN_COLOR}%D{%H}${ALT_COLOR}:${MAIN_COLOR}%D{%M} ${CONT_COLOR}%n${MAIN_COLOR}@${HOST_COLOR}%m${MAIN_COLOR}:${ALT_COLOR}%~ ${MAIN_COLOR}%!${ALT_COLOR}]${MAIN_COLOR} ${CONT_COLOR}%#${MAIN_COLOR} "
 if [[ "$SSH_CLIENT" != "" ]]
 then
-RPROMPT="${HOST_COLOR}SSH${MAIN_COLOR}"
+  export HOST_COLOR="%{$fg[blue]%}"
+  RPROMPT="${HOST_COLOR}SSH${MAIN_COLOR}"
 fi
+PS1="${ALT_COLOR}[${MAIN_COLOR}%D{%H}${ALT_COLOR}:${MAIN_COLOR}%D{%M} ${CONT_COLOR}%n${MAIN_COLOR}@${HOST_COLOR}%m${MAIN_COLOR}:${ALT_COLOR}%~ ${MAIN_COLOR}%!${ALT_COLOR}]${MAIN_COLOR} ${CONT_COLOR}%#${MAIN_COLOR} "
 unset MAIN_COLOR
 unset ALT_COLOR
 unset CONT_COLOR
