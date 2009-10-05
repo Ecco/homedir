@@ -42,6 +42,8 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
+setopt nonomatch
+
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
