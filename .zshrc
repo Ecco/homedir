@@ -12,7 +12,7 @@ Darwin)
   export EDITOR='mate -w'
   alias ls='ls -G'
   alias ltop='top -ocpu -R -F -n30'
-  srm () { mv $* ~/.Trash/ }
+  rmt () { mv $* ~/.Trash/ }
 ;;
 esac
 
