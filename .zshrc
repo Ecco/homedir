@@ -6,9 +6,6 @@ Linux)
   alias ls='ls --color=auto'
   ;;
 Darwin)
-  PATH=$PATH:/usr/local/avr/bin:/opt/local/bin
-  MANPATH=$MANPATH:/opt/local/share/man
-  INFOPATH=$INFOPATH:/opt/local/share/info
   export EDITOR='mate -w'
   alias ls='ls -G'
   alias ltop='top -ocpu -R -F -n30'
