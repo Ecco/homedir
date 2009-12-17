@@ -13,6 +13,9 @@ Darwin)
 ;;
 esac
 
+# Print CPU usage statistics if usage is greater than $REPORTTIME seconds
+export REPORTTIME=5
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=128000
