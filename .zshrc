@@ -47,8 +47,6 @@ setopt nonomatch
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
-bindkey "^[[D" backward-word
-bindkey "^[[C" forward-word
 
 LSCOLORS="gxfxcxdxbxegedabagacad"
 
