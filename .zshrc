@@ -9,6 +9,8 @@ Darwin)
   export EDITOR='mate -w'
   alias ls='ls -G'
   alias ltop='top -ocpu -R -F -n30'
+  alias mnt='diskutil mount'
+  alias umnt='diskutil unmount'
   rmt () { mv $* ~/.Trash/ }
 ;;
 esac
