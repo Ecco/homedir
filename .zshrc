@@ -40,7 +40,8 @@ compinit
 zmodload zsh/complist
 setopt correctall
 setopt extendedglob
-zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+zstyle ':completion:*:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+zstyle ':completion:*:processes' command 'ps x'
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BDésolé, pas de résultats pour : %d%b'
 zstyle ':completion:*' menu select=2
