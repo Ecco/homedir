@@ -32,6 +32,8 @@ setopt sharehistory # As each line is added, the history file is checked to see 
 setopt histignorealldups # Removes copies of lines still in the history list, keeping the newly added one
 setopt histignorespace # Ignore lines starting by a space
 
+setopt auto_cd
+
 autoload -Uz compinit
 compinit
 
