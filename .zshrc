@@ -11,6 +11,7 @@ Darwin)
   alias ltop='top -ocpu -R -F -n30'
   alias mnt='diskutil mount'
   alias umnt='diskutil unmount'
+  alias -g F='`osascript -e "tell application \"Finder\" to set myname to POSIX path of (target of window 1 as alias)"`' 
   rmt () { mv $* ~/.Trash/ }
 ;;
 esac
