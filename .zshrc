@@ -8,6 +8,7 @@ Linux)
 Darwin)
   export EDITOR='mate -w'
   alias ls='ls -G'
+  alias mate='mate -r'
   alias ltop='top -ocpu -R -F -n30'
   alias mnt='diskutil mount'
   alias umnt='diskutil unmount'
@@ -46,7 +47,7 @@ zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BDésolé, pas de résultats pour : %d%b'
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 setopt nonomatch
 
