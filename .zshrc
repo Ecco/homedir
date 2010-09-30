@@ -6,7 +6,7 @@ Linux)
   alias ls='ls --color=auto'
   ;;
 Darwin)
-  export EDITOR='mate -w'
+  export EDITOR='mvim -f'
   alias ls='ls -G'
   alias mate='mate -r'
   alias ltop='top -ocpu -R -F -n30'
