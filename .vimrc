@@ -1,5 +1,6 @@
-set ai
+set nocompatible
 syntax on
+filetype plugin indent on
 set shortmess+=I
 
 if has("gui_macvim")
