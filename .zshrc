@@ -14,6 +14,7 @@ Darwin)
   alias umnt='diskutil unmount'
   alias -g F='`osascript -e "tell application \"Finder\" to set myname to POSIX path of (target of window 1 as alias)"`' 
   rmt () { mv $* ~/.Trash/ }
+  gman () { open man:$1 }
 ;;
 esac
 
