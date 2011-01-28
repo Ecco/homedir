@@ -5,4 +5,3 @@ colorscheme mac_classic
 " Turn on line numbers
 set number
 
-:start
