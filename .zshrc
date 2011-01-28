@@ -12,6 +12,7 @@ Darwin)
   alias ltop='top -ocpu -R -F -n30'
   alias mnt='diskutil mount'
   alias umnt='diskutil unmount'
+  alias mv='nocorrect mv'
   alias -g F='`osascript -e "tell application \"Finder\" to set myname to POSIX path of (target of window 1 as alias)"`' 
   rmt () { mv $* ~/.Trash/ }
   gman () { open man:$1 }
@@ -40,6 +41,7 @@ autoload -Uz compinit
 compinit
 
 zmodload zsh/complist
+setopt nocorrect # Let us disable correction on a per-command basis
 setopt correctall
 setopt extendedglob
 zstyle ':completion:*:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
