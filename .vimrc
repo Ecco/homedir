@@ -14,5 +14,5 @@ if has("gui_macvim")
 endif
 
 " Default completion type = known words
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-x><c-n>"
 
