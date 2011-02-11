@@ -1,5 +1,6 @@
 " Disable the toobar
 set guioptions-=T
+set guioptions-=L
 set guifont=Monaco:h10
 colorscheme mac_classic
 " Turn on line numbers
