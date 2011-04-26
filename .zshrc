@@ -95,3 +95,5 @@ unset ALT_COLOR
 unset CONT_COLOR
 unset HOST_COLOR
 
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
+
