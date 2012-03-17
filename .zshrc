@@ -68,6 +68,26 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 
 setopt nonomatch
 
+autoload -U colors
+colors
+
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*:*' check-for-changes true
+
+# hash changes branch misc
+zstyle ':vcs_info:git*' formats "%c%u[%b]"
+zstyle ':vcs_info:git*' actionformats "![%b]"
+
+zstyle ':vcs_info:git*:*' stagedstr "%{$fg[white]%}•%{$reset_color%}"
+zstyle ':vcs_info:git*:*' unstagedstr "%{$fg[blue]%}•%{$reset_color%}"
+
+precmd () {
+  vcs_info
+  RPROMPT="${vcs_info_msg_0_}"
+}
+
 bindkey -e
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
@@ -77,9 +97,6 @@ LSCOLORS="gxfxcxdxbxegedabagacad"
 
 alias cleandir='rm -v *~ .*~ \#*\# 2>/dev/null'
 alias grep='grep --color'
-
-autoload -U colors
-colors
 
 export MAIN_COLOR="%{$reset_color%}"
 export ALT_COLOR="%{$fg[white]%}"
