@@ -78,7 +78,7 @@ zstyle ':vcs_info:git*:*' check-for-changes true
 
 # hash changes branch misc
 zstyle ':vcs_info:git*' formats "%c%u[%b]"
-zstyle ':vcs_info:git*' actionformats "![%b]"
+zstyle ':vcs_info:git*' actionformats "%{$fg[red]%}!%{$reset_color%}[%b]"
 
 zstyle ':vcs_info:git*:*' stagedstr "%{$fg[white]%}•%{$reset_color%}"
 zstyle ':vcs_info:git*:*' unstagedstr "%{$fg[blue]%}•%{$reset_color%}"
