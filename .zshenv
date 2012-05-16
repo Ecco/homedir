@@ -1,6 +1,6 @@
 case `uname` in
 Darwin)
-  PATH=$PATH:/opt/local/bin:/opt/local/sbin:~/local/bin
+  PATH=~/local/bin:/usr/local/bin:$PATH:/usr/local/android/tools:/usr/local/android/platform-tools
   MANPATH=$MANPATH:/opt/local/share/man
   INFOPATH=$INFOPATH:/opt/local/share/info
 ;;
