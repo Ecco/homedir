@@ -5,3 +5,5 @@ Darwin)
   INFOPATH=$INFOPATH:/opt/local/share/info
 ;;
 esac
+
+export LC_ALL=en_US.UTF-8
