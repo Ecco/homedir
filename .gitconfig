@@ -1,0 +1,13 @@
+[user]
+	name = Romain Goyet
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[core]
+	excludesfile = ~/.gitignore_global
+[log]
+	abbrevCommit = true
+[format]
+	pretty = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(white)<%an>%Creset
