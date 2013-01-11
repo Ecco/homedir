@@ -2,6 +2,7 @@
 set guioptions-=T
 set guioptions-=L
 set guifont=Monaco:h10
+set noantialias
 colorscheme mac_classic
 " Turn on line numbers
 set number
