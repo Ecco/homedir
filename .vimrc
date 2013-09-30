@@ -9,6 +9,9 @@ set number
 " Insert spaces, not tabs
 set expandtab
 
+" UTF8 or die
+set encoding=utf8
+
 " One level of indentation is two spaces
 set shiftwidth=2
 
