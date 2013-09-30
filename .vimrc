@@ -3,6 +3,9 @@ syntax on
 filetype plugin indent on
 set shortmess+=I
 
+" Turn on line numbers
+set number
+
 " Insert spaces, not tabs
 set expandtab
 
