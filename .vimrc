@@ -18,6 +18,10 @@ set encoding=utf8
 " One level of indentation is two spaces
 set shiftwidth=2
 
+" Show trailing whitespace
+set listchars=trail:▒
+set list
+
 if has("gui_macvim")
   let macvim_hig_shift_movement = 1
 endif
