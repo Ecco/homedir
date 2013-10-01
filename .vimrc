@@ -9,6 +9,9 @@ set number
 " Insert spaces, not tabs
 set expandtab
 
+" Ensure the cursor stays away from the top/bottom
+set so=8
+
 " UTF8 or die
 set encoding=utf8
 
