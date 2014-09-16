@@ -19,8 +19,11 @@ set encoding=utf8
 set shiftwidth=2
 
 " Show trailing whitespace
-set listchars=trail:▒
+set listchars=tab:›\ ,trail:▒
 set list
+
+" Tabs are 4 spaces long
+set tabstop=4
 
 if has("gui_macvim")
   let macvim_hig_shift_movement = 1
