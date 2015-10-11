@@ -1,0 +1,49 @@
+chatnets = { freenode = { type = "IRC"; }; };
+
+servers = (
+  {
+    address = "chat.freenode.net";
+    chatnet = "freenode";
+    port = "7000";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
+    autoconnect = "yes";
+  }
+);
+
+channels = (
+  { name = "#nochan"; chatnet = "freenode"; autojoin = "yes"; }
+);
+
+settings = {
+  core = { real_name = "User"; user_name = "user"; nick = "nick"; };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = { theme = "kompakt"; use_status_window = "no"; };
+};
+
+aliases = { wc = "window close"; };
+
+statusbar = {
+  items = {
+    prompt = "{prompt $winref:$itemname}";
+    lag = "{sb Lag: $0-}";
+    act = "{sb Act: $0-}";
+    more = "%r-- more --%n";
+  };
+  default = {
+    topic = { disabled = "yes"; };
+    window = { disabled = "yes"; };
+    prompt = {
+      items = {
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+        input = { priority = "10"; };
+        time = { };
+        more = { priority = "-1"; alignment = "right"; };
+        lag = { priority = "-1"; alignment = "right"; };
+        act = { priority = "10"; alignment = "right"; };
+      };
+    };
+  };
+};
