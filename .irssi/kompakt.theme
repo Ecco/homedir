@@ -199,6 +199,10 @@ abstracts = {
   sb_background = "%n";
 
   sb_topic_bg = "%n";
+
+  # Status bar act
+  sb_act_sep = "%n$*";
+  sb_act_hilight = "%r$*";
 };
 formats = {
   "fe-common/core" = {
