@@ -47,3 +47,4 @@ statusbar = {
     };
   };
 };
+ignores = ( { level = "JOINS PARTS QUITS NICKS"; } );
