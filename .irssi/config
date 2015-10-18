@@ -26,7 +26,7 @@ aliases = { wc = "window close"; };
 
 statusbar = {
   items = {
-    prompt = "{prompt $winref:$itemname}";
+    prompt = "%w{prompt $winref:$itemname}%n";
     lag = "{sb Lag: $0-}";
     act = "{sb Act: $0-}";
     more = "%r-- more --%n";
