@@ -3,9 +3,11 @@
 case `uname` in
 Linux)
   export EDITOR='vi'
+  export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;103:su=30;41:sg=30;46:tw=30,42:ow=30,103"
   alias ls='ls --color=auto'
   ;;
 Darwin)
+  export LSCOLORS="exfxcxdxbxegedabagacad"
   export EDITOR='mvim -f'
   alias ls='ls -G'
   alias mate='mate -r'
@@ -92,8 +94,6 @@ bindkey -e
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
-
-LSCOLORS="gxfxcxdxbxegedabagacad"
 
 alias cleandir='rm -v *~ .*~ \#*\# 2>/dev/null'
 alias grep='grep --color'
