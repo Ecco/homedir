@@ -3,6 +3,12 @@ syntax on
 filetype plugin indent on
 set shortmess+=I
 
+" Use comma as a leader key
+let mapleader=","
+
+" Leader-s toggles english spell-checking
+nnoremap <silent> <leader>s :setlocal spell! spelllang=en_us<cr>
+
 " Turn on line numbers, relatively
 set number
 set relativenumber
