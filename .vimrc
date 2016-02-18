@@ -6,8 +6,36 @@ set shortmess+=I
 " Use comma as a leader key
 let mapleader=","
 
-" Leader-s toggles english spell-checking
-nnoremap <silent> <leader>s :setlocal spell! spelllang=en_us<cr>
+" Leader spell-checking
+nnoremap <silent> <leader>se :call ToggleSpellLang("en_us")<cr>
+nnoremap <silent> <leader>sf :call ToggleSpellLang("fr")<cr>
+
+function! ToggleSpellLang(lang)
+  if &spelllang == a:lang
+    if &spell
+      setlocal nospell
+    else
+      setlocal spell
+    endif
+  else
+    let &spelllang=a:lang
+    setlocal spell
+  endif
+endfunction
+
+" Leader highlighted 80th column
+nnoremap <silent> <leader>c :call ToggleColorColumn80()<cr>
+
+function! ToggleColorColumn80()
+  if &colorcolumn
+    setlocal colorcolumn=
+  else
+    setlocal colorcolumn=80
+  endif
+endfunction
+
+map <leader>t <C-]>
+nnoremap <leader>. :CtrlPTag<cr>
 
 " Turn on line numbers, relatively
 set number
