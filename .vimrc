@@ -39,3 +39,9 @@ endif
 " Default completion type = known words
 let g:SuperTabDefaultCompletionType = "<c-x><c-n>"
 
+
+if !has('gui_running')
+  set background=dark
+  let g:solarized_termtrans=1
+end
+colorscheme solarized
