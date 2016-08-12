@@ -39,6 +39,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 " Leader alternate file
 nnoremap <leader>a :FSHere<cr>
+nnoremap <C-^> :buffer NERD_tree<cr>
 
 " Turn on line numbers, relatively
 set number
