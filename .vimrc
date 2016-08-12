@@ -37,6 +37,9 @@ endfunction
 map <leader>t <C-]>
 nnoremap <leader>. :CtrlPTag<cr>
 
+" Leader alternate file
+nnoremap <leader>a :FSHere<cr>
+
 " Turn on line numbers, relatively
 set number
 set relativenumber
