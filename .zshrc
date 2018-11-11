@@ -54,7 +54,7 @@ setopt histignorespace # Ignore lines starting by a space
 setopt auto_cd
 
 autoload -Uz compinit
-compinit
+compinit -u # The "-u" flag bypasses the compaudit warnings about insecure directories
 
 zmodload zsh/complist
 setopt nocorrect # Let us disable correction on a per-command basis
