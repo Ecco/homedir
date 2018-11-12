@@ -23,6 +23,18 @@ function! ToggleSpellLang(lang)
   endif
 endfunction
 
+
+" Replace pattern in multiple files
+" Invocation :AllS **/*.h:foo/bar/gc
+function! AllS(input)
+  let colonIndex = stridx(a:input,':')
+  let files = strpart(a:input,0,colonIndex)
+  let pattern = strpart(a:input,colonIndex+1)
+  execute 'args ' . files
+  execute 'silent argdo %' . pattern . 'e | update'
+endfunction
+:command! -nargs=1 AllS :call AllS(<f-args>)
+
 " Leader highlighted 80th column
 nnoremap <silent> <leader>c :call ToggleColorColumn80()<cr>
 
