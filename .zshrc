@@ -39,7 +39,7 @@ esac
 # Remote shell options
 if [[ "$SSH_CLIENT" != "" ]]
 then
-  PS1="%F{white}[%f%D{%H}%F{white}:%f%D{%M} %(!.%F{red}.%F{white})%n%f@%F{blue}%m%f:%F{white}%~ %f%!%F{white}]%f %(!.%F{red}.%F{white})}%#%f "
+  PS1="%F{white}[%f%D{%H}%F{white}:%f%D{%M} %(!.%F{red}.%F{white})%n%f@%F{blue}%m%f:%F{white}%~ %f%!%F{white}]%f %(!.%F{red}.%F{white})%#%f "
   precmd() {
     vcs_info
     RPROMPT="${vcs_info_msg_0_}"
