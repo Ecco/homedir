@@ -1,129 +1,89 @@
-# ZSHRC
+# Prompt
+PS1="%F{white}%~ %(!.%F{red}#.») %f"
+precmd () {
+  echo -ne "\033[H\033[2J" # Force clearing the display at first...
+  vcs_info
+  RPROMPT="${vcs_info_msg_0_}"
+  precmd () {
+    echo # ... then output a new line before every new prompt
+    vcs_info
+    RPROMPT="${vcs_info_msg_0_}"
+  }
+}
 
-case `uname` in
-Linux)
-  export EDITOR='vi'
+# Environment variables
+if which rbenv > /dev/null; then eval "$(rbenv init --no-rehash -)"; fi
+export PATH=./bin:~/local/bin:$PATH
+export LC_ALL=en_US.UTF-8
+
+# Aliases
+alias grep='grep --color'
+
+# Per-OS configurations
+case "$OSTYPE" in
+linux*)
+  export EDITOR="vi"
   export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;103:su=30;41:sg=30;46:tw=30,42:ow=30,103"
-  alias ls='ls --color=auto'
+  alias ls="ls --color=auto"
   ;;
-Darwin)
+darwin*)
   export LSCOLORS="exfxcxdxbxegedabagacad"
-  export EDITOR='mvim -f'
-  alias ls='ls -G'
-  alias mate='mate -r'
-  alias ltop='top -ocpu -R -F -n30'
-  alias mnt='diskutil mount'
-  alias umnt='diskutil unmount'
-  alias mv='nocorrect mv'
-  alias -g F='`osascript -e "tell application \"Finder\" to set myname to POSIX path of (target of window 1 as alias)"`' 
+  export EDITOR="mvim -f"
+  alias ls="ls -G"
+  alias ltop="top -ocpu -R -F -n30"
+  alias -g F='"`osascript -e \"tell app \\"Finder\\" to get posix path of (target of window 1 as alias)\"`"'
   rmt () { mv $* ~/.Trash/ }
-  gman () { open man:$1 }
-;;
+  ;;
 esac
 
-# Tell the terminal about the working directory whenever it changes.
-if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
-  update_terminal_cwd() {
-    # Identify the directory using a "file:" scheme URL, including the host name to disambiguate local vs. remote connections. Percent-escape spaces.
-    local SEARCH=' '
-    local REPLACE='%20'
-    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
-    printf '\e]7;%s\a' "$PWD_URL"
+# Remote shell options
+if [[ "$SSH_CLIENT" != "" ]]
+then
+  PS1="%F{white}[%f%D{%H}%F{white}:%f%D{%M} %(!.%F{red}.%F{white})%n%f@%F{blue}%m%f:%F{white}%~ %f%!%F{white}]%f %(!.%F{red}.%F{white})}%#%f "
+  precmd() {
+    vcs_info
+    RPROMPT="${vcs_info_msg_0_}"
   }
-  autoload add-zsh-hook
-  add-zsh-hook chpwd update_terminal_cwd
-  update_terminal_cwd
 fi
 
-# Print CPU usage statistics if usage is greater than $REPORTTIME seconds
-export REPORTTIME=5
-
-# Lines configured by zsh-newuser-install
+# Zsh variables
 HISTFILE=~/.histfile
 HISTSIZE=128000
 SAVEHIST=128000
+REPORTTIME=5 # Print CPU usage statistics if usage is greater than $REPORTTIME seconds
 
+# Zsh modules
+autoload -Uz compinit
+autoload -Uz vcs_info
+compinit -u # The "-u" flag bypasses the compaudit warnings about insecure directories
+
+# Zsh options
+unsetopt prompt_cr # This option would add a weird "new line" when entering a command while zsh is loading...
 setopt histverify # No automatic validation with bang-history (e.g "!!")
-
 setopt appendhistory # Append the new history to the old instead of just overwriting everything that's in the history file
 setopt incappendhistory # Each line is added to the history as it is executed
 setopt sharehistory # As each line is added, the history file is checked to see if anything was written out by another shell, and if so it is included in the history of the current shell too
 setopt histignorealldups # Removes copies of lines still in the history list, keeping the newly added one
 setopt histignorespace # Ignore lines starting by a space
-
-setopt auto_cd
-
-autoload -Uz compinit
-compinit -u # The "-u" flag bypasses the compaudit warnings about insecure directories
-
-zmodload zsh/complist
+setopt auto_cd # Automatically go into directory w/o having to invoke cd
+setopt nonomatch
 setopt nocorrect # Let us disable correction on a per-command basis
 setopt correctall
 setopt extendedglob
-zstyle ':completion:*:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
-zstyle ':completion:*:processes' command 'ps x'
-zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-zstyle ':completion:*:warnings' format '%BDésolé, pas de résultats pour : %d%b'
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+
+# Zsh completion
+#zstyle ':completion:*:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+#zstyle ':completion:*:processes' command 'ps x'
+#zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+#zstyle ':completion:*:warnings' format '%BDésolé, pas de résultats pour : %d%b'
+#zstyle ':completion:*' menu select=2
+#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-setopt nonomatch
-
-autoload -U colors
-colors
-
-autoload -Uz vcs_info
-
+# Zsh vcs info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git*:*' check-for-changes true
-
-# hash changes branch misc
 zstyle ':vcs_info:git*' formats "%c%u[%b]"
-zstyle ':vcs_info:git*' actionformats "%{$fg[red]%}!%{$reset_color%}[%b]"
-
-zstyle ':vcs_info:git*:*' stagedstr "%{$fg[white]%}•%{$reset_color%}"
-zstyle ':vcs_info:git*:*' unstagedstr "%{$fg[blue]%}•%{$reset_color%}"
-
-precmd () {
-  vcs_info
-  RPROMPT="${vcs_info_msg_0_}"
-}
-
-bindkey -e
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-bindkey "^[[3~" delete-char
-
-alias cleandir='rm -v *~ .*~ \#*\# 2>/dev/null'
-alias grep='grep --color'
-
-export MAIN_COLOR="%{$reset_color%}"
-export ALT_COLOR="%{$fg[white]%}"
-export HOST_COLOR="%{$fg[white]%}"
-
-#if test `whoami` != “root”
-if [[ "$UID" == "0" ]]
-then
-export CONT_COLOR="%{$fg[red]%}"
-else
-export CONT_COLOR="%{$fg[white]%}"
-fi
-
-# if [[ "$TERM_PROGRAM" != "Apple_Terminal" ]]
-# then
-# export HOST_COLOR="%{$fg[blue]%}"
-# fi
-
-if [[ "$SSH_CLIENT" != "" ]]
-then
-  export HOST_COLOR="%{$fg[blue]%}"
-  RPROMPT="${HOST_COLOR}SSH${MAIN_COLOR}"
-fi
-PS1="${ALT_COLOR}[${MAIN_COLOR}%D{%H}${ALT_COLOR}:${MAIN_COLOR}%D{%M} ${CONT_COLOR}%n${MAIN_COLOR}@${HOST_COLOR}%m${MAIN_COLOR}:${ALT_COLOR}%~ ${MAIN_COLOR}%!${ALT_COLOR}]${MAIN_COLOR} ${CONT_COLOR}%#${MAIN_COLOR} "
-unset MAIN_COLOR
-unset ALT_COLOR
-unset CONT_COLOR
-unset HOST_COLOR
-
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+zstyle ':vcs_info:git*' actionformats "%F{red}!%f[%b]"
+zstyle ':vcs_info:git*:*' stagedstr "%F{white}•%f"
+zstyle ':vcs_info:git*:*' unstagedstr "%F{blue}•%f"
