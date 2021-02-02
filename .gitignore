@@ -1,8 +1,9 @@
-**
+/*
 !.gitignore
-!.gitignore_global
 !.zshrc
 !.zshenv
 !.vimrc
 !.gvimrc
-
+!.config/
+.config/*
+!.config/git
