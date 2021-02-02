@@ -51,6 +51,9 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 " Leader alternate file
 nnoremap <leader>a :FSHere<cr>
+" I'm used to Ctrl-^ opening the file navigator
+" It's pretty much always the case, until you start using ",a"
+" So make sure it sticks!
 nnoremap <C-^> :buffer NERD_tree<cr>
 
 " Turn on line numbers, relatively
