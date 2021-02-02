@@ -3,7 +3,9 @@
 !.zshrc
 !.zshenv
 !.vimrc
+!.vim/
+.vim/.*
 !.gvimrc
 !.config/
 .config/*
-!.config/git
+!.config/git/
