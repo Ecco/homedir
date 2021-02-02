@@ -103,3 +103,9 @@ set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "p
+
+" Configure NERDTree
+let NERDTreeHijackNetrw=1
+let NERDTreeMinimalUI=1
+highlight NERDTreeOpenable ctermfg=1
+highlight NERDTreeClosable ctermfg=1
