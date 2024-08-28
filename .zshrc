@@ -1,7 +1,6 @@
 # Prompt
 PS1="%F{white}%~ %(!.%F{red}#.») %f"
 precmd () {
-  echo -ne "\033[H\033[2J" # Force clearing the display at first...
   vcs_info
   RPROMPT="${vcs_info_msg_0_}"
   precmd () {
