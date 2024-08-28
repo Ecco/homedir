@@ -68,8 +68,6 @@ setopt histignorealldups # Removes copies of lines still in the history list, ke
 setopt histignorespace # Ignore lines starting by a space
 setopt auto_cd # Automatically go into directory w/o having to invoke cd
 setopt nonomatch
-setopt nocorrect # Let us disable correction on a per-command basis
-setopt correctall
 setopt extendedglob
 
 # Zsh completion
