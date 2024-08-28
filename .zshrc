@@ -14,6 +14,7 @@ precmd () {
 if which rbenv > /dev/null; then eval "$(rbenv init --no-rehash -)"; fi
 export PATH=./bin:~/local/bin:$PATH
 export LC_ALL=en_US.UTF-8
+export EDITOR="vi"
 
 # Aliases
 alias grep='grep --color'
@@ -21,13 +22,11 @@ alias grep='grep --color'
 # Per-OS configurations
 case "$OSTYPE" in
 linux*)
-  export EDITOR="vi"
   export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;103:su=30;41:sg=30;46:tw=30,42:ow=30,103"
   alias ls="ls --color=auto"
   ;;
 darwin*)
   export LSCOLORS="exfxcxdxbxegedabagacad"
-  export EDITOR="mvim -f"
   alias ls="ls -G"
   alias ltop="top -ocpu -R -F -n30"
   alias -g F='"`osascript -e \"tell app \\"Finder\\" to get posix path of (target of window 1 as alias)\"`"'
