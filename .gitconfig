@@ -1,13 +1,13 @@
 [user]
-	name = Romain Goyet
+  name = Romain Goyet
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 [log]
-	abbrevCommit = true
+  abbrevCommit = true
 [format]
-	pretty = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(white)<%an>%Creset
+  pretty = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(white)<%an>%Creset
 [commit]
-	verbose = true
+  verbose = true
