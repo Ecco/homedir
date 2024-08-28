@@ -34,6 +34,9 @@ darwin*)
   ;;
 esac
 
+# Use emacs-style key bindings in spite of EDITOR being vim
+bindkey -e
+
 # Remote shell options
 if [[ "$SSH_CLIENT" != "" ]]
 then
