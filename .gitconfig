@@ -9,3 +9,5 @@
 	abbrevCommit = true
 [format]
 	pretty = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(white)<%an>%Creset
+[commit]
+	verbose = true
