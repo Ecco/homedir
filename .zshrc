@@ -11,10 +11,6 @@ precmd () {
 }
 
 # Environment variables
-if [ -f $HOME/.asdf/asdf.sh ]; then
-  . $HOME/.asdf/asdf.sh
-fi
-export PATH=./bin:~/local/bin:$PATH
 export LC_ALL=en_US.UTF-8
 export EDITOR="vi"
 
@@ -32,9 +28,21 @@ darwin*)
   alias ls="ls -G"
   alias ltop="top -ocpu -R -F -n30"
   alias -g F='"`osascript -e \"tell app \\"Finder\\" to get posix path of (target of window 1 as alias)\"`"'
+  if [ -f /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
   rmt () { mv $* ~/.Trash/ }
   ;;
 esac
+
+# PATH configuration
+if [ -f $HOME/.asdf/asdf.sh ]; then
+  . $HOME/.asdf/asdf.sh
+fi
+if [ -f $HOME/.cargo/env ]; then
+  . $HOME/.cargo/env
+fi
+export PATH=./bin:~/local/bin:$PATH
 
 # Use emacs-style key bindings in spite of EDITOR being vim
 bindkey -e
