@@ -11,7 +11,9 @@ precmd () {
 }
 
 # Environment variables
-if which rbenv > /dev/null; then eval "$(rbenv init --no-rehash -)"; fi
+if [ -f $HOME/.asdf/asdf.sh ]; then
+  . $HOME/.asdf/asdf.sh
+fi
 export PATH=./bin:~/local/bin:$PATH
 export LC_ALL=en_US.UTF-8
 export EDITOR="vi"
