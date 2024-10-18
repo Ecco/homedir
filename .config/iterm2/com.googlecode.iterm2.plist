@@ -4,16 +4,6 @@
 <dict>
 	<key>AllowDragOfTabIntoNewWindow</key>
 	<false/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>CommandSelection</key>
 	<true/>
 	<key>CompactMinimalTabBarHeight</key>
@@ -1535,7 +1525,7 @@
 	<key>UseBorder</key>
 	<false/>
 	<key>UseMetal</key>
-	<false/>
+	<true/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WindowNumber</key>
@@ -1546,5 +1536,7 @@
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
 	<true/>
+	<key>preferIntegratedGPU</key>
+	<false/>
 </dict>
 </plist>

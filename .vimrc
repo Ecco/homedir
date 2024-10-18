@@ -87,9 +87,11 @@ endif
 let g:SuperTabDefaultCompletionType = "<c-x><c-n>"
 
 
+set background=light
+
 if !has('gui_running')
   set background=dark
-  let g:solarized_termtrans=1
+  "#let g:solarized_termtrans=1
 end
 colorscheme solarized
 
@@ -110,5 +112,7 @@ set statusline+=\ %P    "p
 " Configure NERDTree
 let NERDTreeHijackNetrw=1
 let NERDTreeMinimalUI=1
+let NERDTreeCustomOpenArgs = {'file': {'reuse': '', 'where': 'p'}, 'dir': {}}
+
 highlight NERDTreeOpenable ctermfg=1
 highlight NERDTreeClosable ctermfg=1

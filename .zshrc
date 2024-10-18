@@ -42,7 +42,7 @@ fi
 if [ -f $HOME/.cargo/env ]; then
   . $HOME/.cargo/env
 fi
-export PATH=./bin:~/local/bin:$PATH
+export PATH=./bin:~/local/bin:~/.local/bin:$PATH
 
 # Use emacs-style key bindings in spite of EDITOR being vim
 bindkey -e
