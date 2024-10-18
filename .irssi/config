@@ -1,23 +1,29 @@
-chatnets = { freenode = { type = "IRC"; }; };
+chatnets = {
+  LiberaChat = {
+    type = "IRC";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "$USERNAME";
+    sasl_password = "$PASSWORD";
+  };
+};
 
 servers = (
   {
-    address = "chat.freenode.net";
-    chatnet = "freenode";
-    port = "7000";
-    use_ssl = "yes";
-    ssl_verify = "yes";
-    ssl_capath = "/etc/ssl/certs";
+    address = "irc.libera.chat";
+    chatnet = "LiberaChat";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
     autoconnect = "yes";
   }
 );
 
 channels = (
-  { name = "#nochan"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "$CHANNEL"; chatnet = "LiberaChat"; autojoin = "yes"; }
 );
 
 settings = {
-  core = { real_name = "User"; user_name = "user"; nick = "nick"; };
+  core = { real_name = "$NAME"; user_name = "$USER"; nick = "$NICK"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "kompakt"; use_status_window = "no"; };
 };
