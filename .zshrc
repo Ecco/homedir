@@ -18,7 +18,7 @@ export EDITOR="vi"
 alias grep='grep --color'
 
 alias irc='tmux \
-    new-session -A -s irssi irssi \;
+    new-session -A -s irssi irssi \; \
     set -g status off'
 
 # Per-OS configurations
